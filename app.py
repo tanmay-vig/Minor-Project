@@ -1,9 +1,10 @@
 from flask import Flask , request ,render_template
-from PIL import Image
+from model import extract_facial_features , build_discriminator
+
 app = Flask(__name__)
 
 
-@app.route("/add"  , methods =["GET", "POST"])
+@app.route("/webcam"  , methods =["GET", "POST"])
 def webcam():
     if request.method == "POST":
     #    Details from the form
@@ -12,8 +13,11 @@ def webcam():
        Senroll = request.form.get("Enroll") 
        Sbatch = request.form.get("Batch")
        
+       features = extract_facial_features(Spic)
        
-       return "Details :  "+ Spic +  "<br>"+Sname +  " " +Senroll + " " + Sbatch
+       
+
+       return "Details :  "+ Spic +  "<br>"+Sname +  " " +Senroll + " " + Sbatch + "<br>" +features
     return render_template('webcam.html')
 
 @app.route("/")
