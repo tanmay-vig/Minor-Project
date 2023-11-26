@@ -43,4 +43,5 @@ def extract_facial_features(image_path):
 
 
 
-
+features =  extract_facial_features('./tanmay.jpeg')
+print(features)
