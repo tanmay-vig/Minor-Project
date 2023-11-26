@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title> Webcam</title>
+        <link rel="stylesheet" href="webcam.css" />
+        <!-- Bootstrap -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+        ></script>
+
+
+    </head>
+    <body>
+        <div class="m-5 text-primary fw-bolder text-dark text-center">Enter the details for Attendance:</div>
+        <form action="{{ url_for("add")}}" method="post" 
+        class="d-flex flex-column justify-content-center align-items-center">
+            <!-- Picture -->
+            <label for="picture" class="text-primary fw-bold">Take a picture of your face:</label>
+            <input
+                type="file"
+                name="picture"
+                accept="image/*"
+                capture="user"
+                title="picture"
+            />
+             
+            <br>
+            <!-- His name -->
+            <label for="Name" class="text-primary fw-bold">Student Name</label>
+            <input type="text" name="Name" title="Name" />
+
+             <br>
+            <!-- Enroll -->
+            <label for="Enroll" class="text-primary fw-bold">Enroll Number </label>
+            <input type="number" name="Enroll" title="Enroll" />
+
+            <br>
+            <!-- Batch -->
+            <label for="Batch" class="text-primary fw-bold">Batch</label>
+            <input type="text" name="Batch" title="Batch" />
+
+            <br> <br>
+            <label for="Submit"></label>
+            <input type="submit" value="SUBMIT" title="Submit"  class="btn btn-primary" />
+        </form>
+    </body>
+</html>
